@@ -30,6 +30,9 @@ class MyProfile extends React.Component {
           Password:
           {state.pass}
         </p>
+
+        <br />
+        <p>Potential Settings?</p>
       </div>
     );
   }

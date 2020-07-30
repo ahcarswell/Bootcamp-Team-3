@@ -1,13 +1,26 @@
-import React from 'react';
+import React from 'react'
 
-import './Home.css';
+import './Home.css'
 
-function Home() {
-  return (
-    <div className="Home">
-      <p>Welcome to the IBM Team Three Donation Tracker</p>
-    </div>
-  );
+import Header from './Header/Header'
+import Body from './Body/Body'
+import Footer from './Footer/Footer'
+
+class Home extends React.Component {
+  constructor(props) {
+    super(props)
+    this.state = {}
+  }
+
+  render() {
+    return (
+      <div className="Home">
+        <Header />
+        <Body />
+        <Footer />
+      </div>
+    )
+  }
 }
 
-export default Home;
+export default Home
