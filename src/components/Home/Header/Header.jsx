@@ -1,5 +1,7 @@
 import React from 'react'
 
+import Modal from './Modal/Modal'
+
 // import { BrowserRouter as Router, Route, Switch, Link } from 'react-router-dom';
 
 import './Header.css'
@@ -37,6 +39,8 @@ class Header extends React.Component {
             />
           </div>
         </div>
+        {/* Modal Component */}
+        <Modal />
       </header>
     )
   }
