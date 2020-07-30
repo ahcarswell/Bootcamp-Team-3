@@ -1,0 +1,19 @@
+.Footer {
+  background-color: #202020;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  min-width: 100%;
+  min-height: 10%;
+  color: white;
+  font-family: Arial;
+  text-align: center;
+}
+
+.navList {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 100%;
+  list-style: none;
+}

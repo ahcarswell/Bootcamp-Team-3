@@ -1,0 +1,65 @@
+onclick="document.getElementById('id01').style.display='block'"
+style="font-weight:900;"
+
+onclick="w3_open()"
+
+{/* <a 
+                  className="w3-btn" 
+                  href="#">
+                  About FundFlow page
+                </a> */}
+
+<a className="w3-btn" href="#">
+                  About FundFlow page
+                </a>{' '}
+
+className="w3-card w3-container"
+              //style="min-height:460px"
+
+<a
+            clasName="w3-button w3-hover-dark-grey"
+            // style="position:absolute;top:45%;left:0;"
+            onclick="plusDivs(-1)"
+          >
+            ❮
+          </a>
+          <a
+            className="w3-button w3-hover-dark-grey"
+            // style="position:absolute;top:45%;right:0;"
+            onclick="plusDivs(+1)"
+          >
+            ❯
+          </a>
+
+onclick="myAccFunc('Demo1')"
+
+onclick="myAccFunc('Demo2')"
+
+<a href="#" className="w3-button w3-block w3-left-align">
+            How to know a non-profit is legitimate
+          </a>
+          <a href="#" className="w3-button w3-block w3-left-align">
+            Donation Scam: Avoid These Shady Organizations
+          </a>
+          <a href="#" className="w3-button w3-block w3-left-align">
+            How Organizations Are Using Your Donation
+          </a>
+
+onclick="myAccFunc('Demo3')"
+
+onclick="openCity(event,'London')"
+
+onclick="openCity(event,'Paris')"
+
+onclick="openCity(event,'Tokyo')"
+
+<a
+              href="https://www.w3schools.com/w3css/default.asp"
+              target="_blank"
+            >
+              w3.css
+            </a>
+
+<a href="#" className="w3-btn w3-theme-light" target="_blank">
+              About FundFlow
+            </a>
