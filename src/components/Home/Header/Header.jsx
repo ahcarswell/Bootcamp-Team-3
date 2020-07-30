@@ -12,6 +12,11 @@ class Header extends React.Component {
     this.state = {
       isClicked: false,
     }
+    this.modalRef = React.createRef()
+  }
+
+  onClick() {
+    this.setState(() => ({}))
   }
 
   render() {
@@ -40,7 +45,7 @@ class Header extends React.Component {
           </div>
         </div>
         {/* Modal Component */}
-        <Modal />
+        <Modal modalRef={this.modalRef} onClick={this.onModalClick} />
       </header>
     )
   }
