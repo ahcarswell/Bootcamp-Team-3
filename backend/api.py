@@ -110,3 +110,27 @@ def loginVerification(inputParams):
     userInfo = {"username": username, "pass": pasW, "verified": True}
     print(f"userInfo {userInfo}")
     return userInfo
+
+
+@app.route("/backend/subscription", methods=["GET", "POST"])
+def subscription():
+    if request.method == "GET":
+        # return loginVerification(request.args)
+        return
+    elif request.method == "POST":
+        dict_str = request.data.decode("UTF-8")
+        postData = ast.literal_eval(dict_str)
+
+        inputParams = postData.get("params")
+        print("inputParams ,", inputParams)
+
+        name = inputParams.get("name")
+        email = inputParams.get("email")
+        address = inputParams.get("address")
+        nE = inputParams.get("nE")
+        nR = inputParams.get("nR")
+        time = inputParams.get("time")
+
+        print("params ,", [name, email, address, nE, nR, time])
+
+        # return loginVerification(inputParams)

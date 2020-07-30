@@ -2,7 +2,8 @@ import React from 'react'
 
 import './Unlogged.css'
 
-import PropTypes from 'prop-types'
+import SignUpIm from './img/register.svg'
+import LoginIm from './img/log.svg'
 
 import axios from 'axios'
 
@@ -13,7 +14,10 @@ class Unlogged extends React.Component {
       username: '',
       pass: '',
       loggedIn: false,
+      mode: 'login',
     }
+    this.containerRef = React.createRef()
+
     this.handleInputChange = this.handleInputChange.bind(this)
     this.handleSubmit = this.handleSubmit.bind(this)
     this.loginPostReq = this.loginPostReq.bind(this)
@@ -74,19 +78,29 @@ class Unlogged extends React.Component {
       })
   }
 
+  handleModeChange() {
+    const curMode = this.state.mode
+    if (curMode === 'login') {
+      this.setState(() => ({ mode: 'signUp' }))
+    } else if (curMode === 'signUp') {
+      this.setState(() => ({ mode: 'login' }))
+    }
+    console.log('handleModeChange this.state', this.state)
+  }
+
   render() {
     return (
-      <div lang="en" className="container">
+      <div lang="en" className="container" ref={this.containerRef}>
         <div className="head">
           <meta charSet="UTF-8" />
           <meta
             name="viewport"
             content="width=device-width, initial-scale=1.0"
           />
-          {/* <script
+          <script
             src="https://kit.fontawesome.com/64d58efce2.js"
             crossOrigin="anonymous"
-          /> */}
+          />
           <link rel="stylesheet" href="style.css" />
           <title>Sign in & Sign up Form</title>
         </div>
@@ -94,6 +108,7 @@ class Unlogged extends React.Component {
           <div className="container">
             <div className="forms-container">
               <div className="signin-signup">
+                {/* Login Form */}
                 <form
                   action="#"
                   className="sign-in-form"
@@ -140,6 +155,8 @@ class Unlogged extends React.Component {
                     </a>
                   </div>
                 </form>
+
+                {/* signUp Form */}
                 <form action="#" className="sign-up-form">
                   <h2 className="title">Sign up</h2>
                   <div className="input-field">
@@ -181,28 +198,43 @@ class Unlogged extends React.Component {
                 <div className="content">
                   <h3>Welcome to FundFlow!</h3>
                   <p>Donations without the frustrations Sign up</p>
-                  <button className="btn transparent" id="sign-up-btn">
+                  <button
+                    className="btn transparent"
+                    id="sign-up-btn"
+                    onClick={this.handleModeChange.bind(this)}
+                  >
                     Sign up
                   </button>
                 </div>
-                {/* <img src="img/log.svg" className="image" alt="" /> */}
+                <img src={LoginIm} className="image" alt="log alt" />
               </div>
               <div className="panel right-panel">
                 <div className="content">
                   <h3>Already a Member? LOGIN!</h3>
-                  <button className="btn transparent" id="sign-in-btn">
+                  <button
+                    className="btn transparent"
+                    id="sign-in-btn"
+                    onClick={this.handleModeChange.bind(this)}
+                  >
                     Sign in
                   </button>
                 </div>
-                {/* <img src="img/register.svg" className="image" alt="" /> */}
+
+                <img src={SignUpIm} className="image" alt="register alt" />
               </div>
             </div>
           </div>
-
-          {/* <script src="app.js" /> */}
         </div>
       </div>
     )
+  }
+
+  componentDidUpdate() {
+    if (this.state.mode === 'signUp') {
+      this.containerRef.current.classList.add('sign-up-mode')
+    } else if (this.state.mode === 'login') {
+      this.containerRef.current.classList.remove('sign-up-mode')
+    }
   }
 }
 

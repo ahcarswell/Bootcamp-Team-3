@@ -7,6 +7,7 @@ import CreateAccountForm from './Unlogged2/CreateAccountForm/CreateAccountForm'
 
 import MyDonations from './Logged/MyDonations/MyDonations'
 import MyProfile from './Logged/MyProfile/MyProfile'
+import Forms from './Logged/Forms/Forms'
 
 import Unlogged from './Unlogged/Unlogged'
 import LoggedIn from './Logged/LoggedIn/LoggedIn'
@@ -20,19 +21,29 @@ class Profile extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
-      username: this.props.appState.username,
-      pass: this.props.appState.pass,
-      loggedIn: this.props.appState.loggedIn,
+      username: '',
+      pass: '',
+      // loggedIn from props here is essential
+      loggedIn: props.appState.loggedIn,
     }
     this.saveUp = this.saveUp.bind(this)
     this.unloggedMode = this.unloggedMode.bind(this)
     this.loggedMode = this.loggedMode.bind(this)
   }
 
+  componentWillReceiveProps(nextProps) {
+    console.log('nextProps.appState ,', nextProps.appState)
+    this.setState(() => ({
+      username: nextProps.appState.username,
+      pass: nextProps.appState.pass,
+      loggedIn: nextProps.appState.loggedIn,
+    }))
+  }
+
   saveUp(state) {
     this.setUserInfo(state.username, state.pass, state.verified)
     console.log('saveUP this.state ,', this.state)
-    // this.props.saveUp(state)
+    this.props.saveUp(state)
   }
 
   setUserInfo(username, pass, loggedIn) {
@@ -53,6 +64,10 @@ class Profile extends React.Component {
 
           <Link className="navLinks" to="/profile/myProfile">
             <li>About Me</li>
+          </Link>
+
+          <Link className="navLinks" to="/profile/subscription">
+            <li>Subscription</li>
           </Link>
         </ul>
 
@@ -77,6 +92,14 @@ class Profile extends React.Component {
             path="/profile/myProfile"
             render={() => (
               <MyProfile saveUp={this.saveUp} profState={this.state} />
+            )}
+          />
+
+          <Route
+            exact
+            path="/profile/subscription"
+            render={() => (
+              <Forms saveUp={this.saveSubscriptionUp} profState={this.state} />
             )}
           />
         </Switch>

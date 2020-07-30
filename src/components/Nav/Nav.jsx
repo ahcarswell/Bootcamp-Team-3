@@ -24,10 +24,6 @@ function Nav() {
           <Link className="navLinks" to="/profile">
             <li>Profile</li>
           </Link>
-
-          <Link className="nettersLinks" to="/netters">
-            <li>Netters</li>
-          </Link>
         </ul>
       </nav>
     </div>

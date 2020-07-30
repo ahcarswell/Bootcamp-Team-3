@@ -12,6 +12,7 @@
     "expo": "^38.0.8",
     "expo-cli": "^3.22.3",
     "expo-status-bar": "^1.0.2",
+    "file-loader": "^6.0.0",
     "prop-types": "^15.7.2",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
@@ -21,7 +22,8 @@
     "react-router-dom": "^5.2.0",
     "react-scripts": "3.4.1",
     "sass-loader": "^9.0.2",
-    "style-loader": "^1.2.1"
+    "style-loader": "^1.2.1",
+    "svg-url-loader": "^6.0.0"
   },
   "scripts": {
     "lint": "eslint .  --ext .js",

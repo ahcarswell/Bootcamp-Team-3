@@ -12,7 +12,6 @@ import Home from './components/Home/Home'
 import About from './components/About/About'
 import OrgSearch from './components/OrgSearch/OrgSearch'
 import Profile from './components/Profile/Profile'
-import Netters from './components/Netters/Netters'
 import NotFound from './components/NotFound/NotFound'
 
 import './App.css'
@@ -29,7 +28,11 @@ class App extends React.Component {
   }
 
   saveUp(state) {
-    this.setState(state)
+    this.setState({
+      username: state.username,
+      pass: state.pass,
+      loggedIn: state.verified,
+    })
     console.log('app saveUp state ', this.state)
   }
 
@@ -48,7 +51,6 @@ class App extends React.Component {
                 <Profile saveUp={this.saveUp} appState={this.state} />
               )}
             />
-            <Route exact path="/netters" component={Netters} />
             <Route path="/404" component={NotFound} />
             <Redirect to="/404" />
           </Switch>
